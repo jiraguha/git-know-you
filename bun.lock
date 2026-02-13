@@ -1,0 +1,51 @@
+{
+  "lockfileVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "dev-profile",
+      "dependencies": {
+        "@cliffy/ansi": "npm:@jsr/cliffy__ansi@^1.0.0-rc.8",
+        "@cliffy/command": "npm:@jsr/cliffy__command@^1.0.0-rc.8",
+        "@cliffy/table": "npm:@jsr/cliffy__table@^1.0.0-rc.8",
+        "bun-types": "^1.3.9",
+        "chalk": "^5.6.2",
+        "zod": "^4.3.6",
+      },
+    },
+  },
+  "packages": {
+    "@cliffy/ansi": ["@jsr/cliffy__ansi@1.0.0-rc.8", "https://npm.jsr.io/~/11/@jsr/cliffy__ansi/1.0.0-rc.8.tgz", { "dependencies": { "@jsr/cliffy__internal": "1.0.0-rc.8", "@jsr/std__encoding": "~1.0.5", "@jsr/std__fmt": "~1.0.2", "@jsr/std__io": "~0.224.9" } }, "sha512-2N2ZNnLLhjojasZpwOOJ1Q8yT9MWNidgEakpoWl5HCjvUhcR7hJolQJVMlM31MS8IPMJIsZXz+5E6uFwHr2eFg=="],
+
+    "@cliffy/command": ["@jsr/cliffy__command@1.0.0-rc.8", "https://npm.jsr.io/~/11/@jsr/cliffy__command/1.0.0-rc.8.tgz", { "dependencies": { "@jsr/cliffy__flags": "1.0.0-rc.8", "@jsr/cliffy__internal": "1.0.0-rc.8", "@jsr/cliffy__table": "1.0.0-rc.8", "@jsr/std__fmt": "~1.0.2", "@jsr/std__text": "~1.0.7" } }, "sha512-ayYncuw/PTIiceKKMEZPyv9Qu39Pt6bNTBariKjZi0th5Je4am6RNC+FSXEAHPJBH+bAY3S0lwaFsEGC9uPEmg=="],
+
+    "@cliffy/table": ["@jsr/cliffy__table@1.0.0-rc.8", "https://npm.jsr.io/~/11/@jsr/cliffy__table/1.0.0-rc.8.tgz", { "dependencies": { "@jsr/std__fmt": "~1.0.2" } }, "sha512-7r94r56TLd17raKyZQHV3/qLngy2Lusuy4rjA/5QMDNM0lDIwZw67lmRMxpyX6+qzAxzRAJ8dtTvFSvGwrSqgg=="],
+
+    "@jsr/cliffy__flags": ["@jsr/cliffy__flags@1.0.0-rc.8", "https://npm.jsr.io/~/11/@jsr/cliffy__flags/1.0.0-rc.8.tgz", { "dependencies": { "@jsr/std__text": "~1.0.7" } }, "sha512-gbIPx2XIxkNlAQikraWm4h+C77tHmE8NQhwIX6Qn2rrU32uh/Vg4OXklXvlrkfrcs3wMbOd/SZ9e/wVqM0H8/w=="],
+
+    "@jsr/cliffy__internal": ["@jsr/cliffy__internal@1.0.0-rc.8", "https://npm.jsr.io/~/11/@jsr/cliffy__internal/1.0.0-rc.8.tgz", { "dependencies": { "@jsr/std__fmt": "~1.0.2" } }, "sha512-xKIMr2v5+R5qNw7CWqic2ulhZE3cXPKB40rb5mibsUrtJkC55Ha/3PGgTm1W9SWH1+IqA/FfC2ikpjzCXSKVBw=="],
+
+    "@jsr/cliffy__table": ["@jsr/cliffy__table@1.0.0-rc.8", "https://npm.jsr.io/~/11/@jsr/cliffy__table/1.0.0-rc.8.tgz", { "dependencies": { "@jsr/std__fmt": "~1.0.2" } }, "sha512-7r94r56TLd17raKyZQHV3/qLngy2Lusuy4rjA/5QMDNM0lDIwZw67lmRMxpyX6+qzAxzRAJ8dtTvFSvGwrSqgg=="],
+
+    "@jsr/std__bytes": ["@jsr/std__bytes@1.0.6", "https://npm.jsr.io/~/11/@jsr/std__bytes/1.0.6.tgz", {}, "sha512-St6yKggjFGhxS52IFLJWvkchRFbAKg2Xh8UxA4S1EGz7GJ2Ui+ssDDldj/w2c8vCxvl6qgR0HaYbKeFJNqujmA=="],
+
+    "@jsr/std__encoding": ["@jsr/std__encoding@1.0.10", "https://npm.jsr.io/~/11/@jsr/std__encoding/1.0.10.tgz", {}, "sha512-WK2njnDTyKefroRNk2Ooq7GStp6Y0ccAvr4To+Z/zecRAGe7+OSvH9DbiaHpAKwEi2KQbmpWMOYsdNt+TsdmSw=="],
+
+    "@jsr/std__fmt": ["@jsr/std__fmt@1.0.9", "https://npm.jsr.io/~/11/@jsr/std__fmt/1.0.9.tgz", {}, "sha512-YFJJMozmORj2K91c5J9opWeh0VUwrd+Mwb7Pr0FkVCAKVLu2UhT4LyvJqWiyUT+eF+MdfqQ9F7RtQj4bXn9Smw=="],
+
+    "@jsr/std__io": ["@jsr/std__io@0.224.9", "https://npm.jsr.io/~/11/@jsr/std__io/0.224.9.tgz", { "dependencies": { "@jsr/std__bytes": "^1.0.2" } }, "sha512-MwBAa4WDb2yOuzbd21cweZfIFnH5I0ICOtCTi2ckHLQ+Dx99gvavXPX+e7nqrahaDuaaBlZcA5TC6XHh99IOpw=="],
+
+    "@jsr/std__regexp": ["@jsr/std__regexp@1.0.1", "https://npm.jsr.io/~/11/@jsr/std__regexp/1.0.1.tgz", {}, "sha512-AnGeP//DHpPvhCWjI5dR4o013JhCQioD8yMF8drD7PWb0X4kvmO35hbZi+NZhfSolz4Ts2cpPzJY+DUpi2XE9A=="],
+
+    "@jsr/std__text": ["@jsr/std__text@1.0.17", "https://npm.jsr.io/~/11/@jsr/std__text/1.0.17.tgz", { "dependencies": { "@jsr/std__regexp": "^1.0.1" } }, "sha512-oZsihl1bcTy1Ixzven8rin8kjChj1zDJWqgpS0oSMGCJDzyB365gtIfAvcMmji+M+FcIWo3goDXfHcFYt+k/kg=="],
+
+    "@types/node": ["@types/node@25.2.3", "", { "dependencies": { "undici-types": "~7.16.0" } }, "sha512-m0jEgYlYz+mDJZ2+F4v8D1AyQb+QzsNqRuI7xg1VQX/KlKS0qT9r1Mo16yo5F/MtifXFgaofIFsdFMox2SxIbQ=="],
+
+    "bun-types": ["bun-types@1.3.9", "", { "dependencies": { "@types/node": "*" } }, "sha512-+UBWWOakIP4Tswh0Bt0QD0alpTY8cb5hvgiYeWCMet9YukHbzuruIEeXC2D7nMJPB12kbh8C7XJykSexEqGKJg=="],
+
+    "chalk": ["chalk@5.6.2", "", {}, "sha512-7NzBL0rN6fMUW+f7A6Io4h40qQlG+xGmtMxfbnH/K7TAtt8JQWVQK+6g0UXKMeVJoyV5EkkNsErQ8pVD3bLHbA=="],
+
+    "undici-types": ["undici-types@7.16.0", "", {}, "sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw=="],
+
+    "zod": ["zod@4.3.6", "", {}, "sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg=="],
+  }
+}

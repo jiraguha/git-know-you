@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Generated profiles
+profiles/
+
+# Build output
+dist/
+
+# Bun
+bun.lockb
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

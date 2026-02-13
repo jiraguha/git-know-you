@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bunx jsr add:*)",
+      "Bash(bun add:*)",
+      "Bash(bun run:*)"
+    ]
+  }
+}

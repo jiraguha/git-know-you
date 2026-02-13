@@ -7,10 +7,10 @@ import { exportCommand } from "./commands/export.ts";
 import { refreshCommand } from "./commands/refresh.ts";
 
 const program = new Command()
-  .name("dev-profile")
+  .name("git-know-you")
   .version("1.0.0")
   .description(
-    "Build developer profiles focused on open source contributions by analyzing GitHub activity"
+    "Showcase your open source journey — turn any GitHub username into a contribution profile"
   )
   .command("build", buildCommand)
   .command("show", showCommand)

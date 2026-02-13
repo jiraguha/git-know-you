@@ -1,20 +1,20 @@
-# Dev Profile Builder — Open Source Contributions CLI
+# git-know-you — Open Source Contributions CLI
 
 ## Overview
 
-A CLI tool that builds a developer profile focused on open source contributions by analyzing their GitHub activity. The user provides their GitHub username, and the tool fetches, analyzes, and summarizes their OSS involvement — then answers the question: **"Do you contribute or have you ever contributed to open source? If so, could you tell us more about it?"**
+A CLI tool that builds developer profiles focused on open source contributions by analyzing GitHub activity. Turn any GitHub username into a comprehensive contribution profile showcasing repositories owned, external projects contributed to, and impact made across the open source ecosystem.
 
 ## Goals
 
 - Fetch a developer's public GitHub data and produce a structured open source contribution profile
 - Automatically determine whether and how actively someone contributes to OSS
-- Generate a human-readable narrative answer to the open source question
+- Generate human-readable narrative summaries of OSS involvement
 - Persist profiles as local JSON files for reuse
 
 ## How It Works
 
 ```
-$ dev-profile build jpmusic2
+$ git-know-you build jpmusic2
 
 
 🔍 Fetching GitHub data for jpmusic2...
@@ -26,7 +26,7 @@ $ dev-profile build jpmusic2
 
 📋 Open Source Contribution Profile: jpmusic2
 
-  Do you contribute to open source?  YES — Active contributor
+  Status: Active contributor
 
   Summary:
   jpmusic2 is an active open source contributor with 42 public repositories.
@@ -133,7 +133,7 @@ All discovered repos get their per-project counts computed. Projects with all-ze
   "open_source": {
     "contributes": true,
     "activity_level": "active",
-    "summary": "Auto-generated narrative answering the OSS question",
+    "summary": "Auto-generated narrative describing the user's OSS involvement",
     "projects": [
       {
         "repo": "username/repo-name",
@@ -190,7 +190,7 @@ All discovered repos get their per-project counts computed. Projects with all-ze
 
 ## Narrative Generation
 
-The `summary` field is a **locally generated** human-readable paragraph that directly answers: _"Do you contribute or have you ever contributed to open source? If so, could you tell us more about it?"_
+The `summary` field is a **locally generated** human-readable paragraph describing the user's open source involvement.
 
 Build the narrative from templates based on the data:
 
@@ -233,21 +233,21 @@ bun add zod chalk
 
 ### Commands
 
-Registered as Cliffy subcommands on a root `dev-profile` command:
+Registered as Cliffy subcommands on a root `git-know-you` command:
 
 ```
-bun run src/index.ts build <username>              # Fetch GitHub data & build profile
-bun run src/index.ts show <username>               # Display a saved profile
-bun run src/index.ts list                          # List all saved profiles
-bun run src/index.ts export <username> --format=json|md  # Export profile
-bun run src/index.ts refresh <username>            # Re-fetch and update an existing profile
+git-know-you build <username>              # Fetch GitHub data & build profile
+git-know-you show <username>               # Display a saved profile
+git-know-you list                          # List all saved profiles
+git-know-you export <username> --format=json|md  # Export profile
+git-know-you refresh <username>            # Re-fetch and update an existing profile
 ```
 
 Optionally add a `bin` entry in `package.json` so it can be run as:
 
 ```bash
 bun link  # then:
-dev-profile build <username>
+git-know-you build <username>
 ```
 
 ### Project Structure
@@ -305,16 +305,16 @@ dev-profile build <username>
 
 ## Success Criteria
 
-- [ ] `dev-profile build <username>` fetches data from GitHub and saves a valid JSON profile
-- [ ] The generated `summary` field reads as a natural answer to the open source question
+- [ ] `git-know-you build <username>` fetches data from GitHub and saves a valid JSON profile
+- [ ] The generated `summary` field reads as a natural description of OSS involvement
 - [ ] `contributes` is correctly determined based on actual public activity
 - [ ] **Every project the user interacted with** is listed with per-project counts
 - [ ] Per-project counts include: commits, PRs, issues created, reviews, discussions
 - [ ] Totals row correctly sums all per-project counts
 - [ ] External contributions (PRs/issues to repos not owned by the user) are detected via events + search API
 - [ ] Language breakdown percentages are accurate across repos
-- [ ] `dev-profile show` renders readable tables (owned + external) with count columns
-- [ ] `dev-profile export --format=md` produces clean Markdown with tables
+- [ ] `git-know-you show` renders readable tables (owned + external) with count columns
+- [ ] `git-know-you export --format=md` produces clean Markdown with tables
 - [ ] Rate limiting is handled gracefully with actionable user feedback
 - [ ] Works without a GitHub token; works better with one
 - [ ] Search API fallback catches contributions older than the 90-day events window

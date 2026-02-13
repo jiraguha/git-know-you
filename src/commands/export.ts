@@ -16,7 +16,7 @@ export const exportCommand = new Command()
     if (!profile) {
       printError(`No saved profile found for '${username}'`);
       console.log();
-      console.log(`Run \`dev-profile build ${username}\` to create a profile.`);
+      console.log(`Run \`git-know-you build ${username}\` to create a profile.`);
       process.exit(1);
     }
 

@@ -43,7 +43,7 @@ export class GitHubClient {
   private getHeaders(): HeadersInit {
     const headers: HeadersInit = {
       Accept: "application/vnd.github.v3+json",
-      "User-Agent": "dev-profile-cli",
+      "User-Agent": "git-know-you-cli",
     };
 
     if (this.token) {

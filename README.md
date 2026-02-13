@@ -1,29 +1,24 @@
-# dev-profile
+# git-know-you
 
-A CLI tool that builds developer profiles focused on open source contributions by analyzing GitHub activity.
+**Showcase your open source journey in seconds.**
 
-Answer the question: **"Do you contribute to open source? If so, tell us more about it."**
+Turn any GitHub username into a beautiful contribution profile. See the full picture: repositories owned, external projects contributed to, languages mastered, and impact made across the open source ecosystem.
 
 ## Features
 
-- Fetches and analyzes public GitHub data
-- Discovers all projects you've contributed to (owned, forked, external)
-- Computes per-project metrics: commits, PRs, issues, reviews, docs, discussions
-- Generates human-readable summaries of your OSS involvement
-- Displays beautiful terminal tables with contribution breakdowns
-- Persists profiles locally for quick access
+- **Complete Discovery** — Finds every project you've touched: owned repos, forks with commits, and external contributions
+- **Rich Metrics** — Tracks commits, PRs, issues, reviews, and discussions per project
+- **Smart Summaries** — Auto-generates narrative descriptions of your OSS involvement
+- **Beautiful Output** — Terminal tables with unicode borders and color-coded stats
+- **Export Ready** — Save as JSON or Markdown for portfolios and resumes
+- **Lightning Fast** — Built on Bun for instant startup and rapid analysis
 
 ## Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/dev-profile.git
-cd dev-profile
-
-# Install dependencies
+git clone https://github.com/jiraguha/git-know-you.git
+cd git-know-you
 bun install
-
-# Link globally (optional)
 bun link
 ```
 
@@ -32,9 +27,7 @@ bun link
 ### Build a Profile
 
 ```bash
-bun run src/index.ts build <username>
-# or if linked:
-dev-profile build <username>
+git-know-you build <username>
 ```
 
 **Example output:**
@@ -49,7 +42,7 @@ dev-profile build <username>
 
 📋 Open Source Contribution Profile: jpmusic2
 
-  Do you contribute to open source?  YES — Active contributor
+  Status: Active contributor
 
   Summary:
   jpmusic2 is an active open source contributor with 42 public repositories.
@@ -72,102 +65,59 @@ dev-profile build <username>
 💾 Profile saved to ./profiles/jpmusic2.json
 ```
 
-### Other Commands
+### Commands
 
 ```bash
-# Display a saved profile
-dev-profile show <username>
-
-# List all saved profiles
-dev-profile list
-
-# Export to JSON or Markdown
-dev-profile export <username> --format=json
-dev-profile export <username> --format=md
-
-# Re-fetch and update an existing profile
-dev-profile refresh <username>
+git-know-you build <username>     # Fetch and analyze GitHub data
+git-know-you show <username>      # Display a saved profile
+git-know-you list                 # List all saved profiles
+git-know-you export <username>    # Export to JSON or Markdown
+git-know-you refresh <username>   # Re-fetch and update a profile
 ```
 
-## Metrics Tracked
+## Metrics
 
 | Metric | Description |
 |--------|-------------|
-| **Commits** | Total commits authored by the user |
-| **Pull Requests** | PRs opened by the user |
-| **Issues** | Issues created by the user |
-| **Reviews** | PRs where the user provided a review |
-| **Discussions** | Issue threads where the user commented |
+| **Commits** | Total commits authored |
+| **Pull Requests** | PRs opened |
+| **Issues** | Issues created |
+| **Reviews** | Code reviews given |
+| **Discussions** | Issue threads participated in |
 
 ## Activity Levels
 
-Based on total contributions, profiles are classified as:
-
 | Level | Criteria |
 |-------|----------|
-| **Inactive** | 0 total contributions |
-| **Occasional** | < 50 total contributions |
+| **Inactive** | 0 contributions |
+| **Occasional** | < 50 contributions |
 | **Active** | 50 - 500 contributions |
 | **Prolific** | > 500 contributions |
 
-## GitHub Authentication
+## GitHub Token (Optional)
 
-The tool works without authentication (60 requests/hour), but for better results:
+Works without authentication (60 req/hour). For larger profiles:
 
 ```bash
 export GITHUB_TOKEN=your_token_here
-dev-profile build <username>
+git-know-you build <username>
 ```
 
-With a token, you get 5,000 requests/hour and can analyze larger profiles.
-
-## Project Structure
-
-```
-src/
-├── index.ts              # CLI entry point
-├── commands/
-│   ├── build.ts          # Fetch + analyze + save
-│   ├── show.ts           # Display saved profile
-│   ├── list.ts           # List all profiles
-│   ├── export.ts         # Export to JSON/Markdown
-│   └── refresh.ts        # Re-fetch and update
-├── github/
-│   ├── client.ts         # GitHub API client
-│   ├── fetcher.ts        # Data fetching with pagination
-│   └── types.ts          # API response types
-├── analyzer/
-│   ├── project-counts.ts # Per-project counting
-│   ├── project-discovery.ts
-│   ├── languages.ts      # Language aggregation
-│   ├── activity.ts       # Activity level computation
-│   └── narrative.ts      # Summary text generation
-├── schema/
-│   └── profile.ts        # Zod schemas
-├── storage/
-│   └── json-store.ts     # Profile persistence
-└── utils/
-    └── display.ts        # Table rendering
-```
+With a token: 5,000 requests/hour.
 
 ## Tech Stack
 
-- **Runtime:** [Bun](https://bun.sh) - Fast JavaScript runtime
-- **CLI Framework:** [Cliffy](https://cliffy.io) - Command routing and table rendering
-- **Validation:** [Zod](https://zod.dev) - Schema validation
-- **Styling:** [Chalk](https://github.com/chalk/chalk) - Terminal colors
+- **[Bun](https://bun.sh)** — Runtime
+- **[Cliffy](https://cliffy.io)** — CLI framework
+- **[Zod](https://zod.dev)** — Validation
+- **[Chalk](https://github.com/chalk/chalk)** — Colors
 
 ## Development
 
 ```bash
-# Run the project
-bun run src/index.ts
-
-# Run tests
-bun test
-
-# Type check
-bun run tsc --noEmit
+bun run src/index.ts    # Run
+bun test                # Test
+bun run tsc --noEmit    # Type check
 ```
 
 ## License

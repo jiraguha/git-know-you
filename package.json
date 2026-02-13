@@ -1,13 +1,12 @@
 {
-  "name": "dev-profile",
+  "name": "git-know-you",
   "version": "1.0.0",
   "type": "module",
   "bin": {
-    "dev-profile": "./src/index.ts"
+    "git-know-you": "./src/index.ts"
   },
   "scripts": {
-    "start": "bun run src/index.ts",
-    "dev-profile": "bun run src/index.ts"
+    "start": "bun run src/index.ts"
   },
   "dependencies": {
     "@cliffy/ansi": "npm:@jsr/cliffy__ansi@^1.0.0-rc.8",

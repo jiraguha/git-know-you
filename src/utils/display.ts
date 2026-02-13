@@ -41,13 +41,10 @@ export function displayProfile(profile: Profile): void {
   console.log();
 
   // Contribution status
-  const contributes = os.contributes ? "YES" : "NO";
   const statusColor = os.contributes ? chalk.green : chalk.yellow;
   const activityDesc = getActivityDescription(os.activity_level);
 
-  console.log(
-    `  ${chalk.bold("Do you contribute to open source?")}  ${statusColor(contributes)} — ${activityDesc}`
-  );
+  console.log(`  ${chalk.bold("Status:")} ${statusColor(activityDesc)}`);
   console.log();
 
   // Summary
@@ -147,7 +144,7 @@ export function displayProfileList(usernames: string[]): void {
   if (usernames.length === 0) {
     console.log(chalk.yellow("No saved profiles found."));
     console.log(
-      chalk.gray("Run `dev-profile build <username>` to create a profile.")
+      chalk.gray("Run `git-know-you build <username>` to create a profile.")
     );
     return;
   }

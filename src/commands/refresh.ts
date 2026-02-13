@@ -30,7 +30,7 @@ export const refreshCommand = new Command()
       printError(`No existing profile found for '${username}'`);
       console.log();
       console.log(
-        `Run \`dev-profile build ${username}\` to create a new profile.`
+        `Run \`git-know-you build ${username}\` to create a new profile.`
       );
       process.exit(1);
     }

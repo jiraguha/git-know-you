@@ -4,24 +4,9 @@ import {
   searchRepoIssues,
   searchRepoReviews,
   searchRepoDiscussions,
-  fetchCommitsWithFiles,
 } from "../github/fetcher.ts";
 import type { ProjectCounts } from "../schema/profile.ts";
 import type { DiscoveredProject } from "./project-discovery.ts";
-
-const DOC_PATTERNS = [
-  /^docs\//i,
-  /\.md$/i,
-  /\.rst$/i,
-  /^readme/i,
-  /^changelog/i,
-  /^contributing/i,
-  /^license/i,
-];
-
-function isDocFile(filename: string): boolean {
-  return DOC_PATTERNS.some((pattern) => pattern.test(filename));
-}
 
 export async function getProjectCounts(
   username: string,
@@ -34,32 +19,6 @@ export async function getProjectCounts(
 
   // Get commit count
   const commits = await githubClient.getCommitCount(owner, repo, username);
-
-  // Get docs commits by fetching actual commits and checking files
-  let docsCommits = 0;
-  if (commits > 0 && project.isOwned) {
-    try {
-      const commitDetails = await fetchCommitsWithFiles(
-        owner,
-        repo,
-        username,
-        50
-      );
-      for (const commit of commitDetails) {
-        if (commit.files?.some((f) => isDocFile(f.filename))) {
-          docsCommits++;
-        }
-      }
-      // Estimate total docs commits based on sample
-      if (commitDetails.length > 0 && commits > 50) {
-        const ratio = docsCommits / commitDetails.length;
-        docsCommits = Math.round(commits * ratio);
-      }
-    } catch {
-      // If fetching commit details fails, estimate based on commit count
-      docsCommits = Math.round(commits * 0.05);
-    }
-  }
 
   // Get PR count
   const pullRequests = await searchRepoPRs(username, owner, repo);
@@ -78,7 +37,6 @@ export async function getProjectCounts(
     pull_requests: pullRequests,
     issues_created: issuesCreated,
     reviews,
-    docs_commits: docsCommits,
     discussions,
   };
 }
@@ -100,7 +58,6 @@ export function sumCounts(countsList: ProjectCounts[]): ProjectCounts {
       pull_requests: acc.pull_requests + counts.pull_requests,
       issues_created: acc.issues_created + counts.issues_created,
       reviews: acc.reviews + counts.reviews,
-      docs_commits: acc.docs_commits + counts.docs_commits,
       discussions: acc.discussions + counts.discussions,
     }),
     {
@@ -108,7 +65,6 @@ export function sumCounts(countsList: ProjectCounts[]): ProjectCounts {
       pull_requests: 0,
       issues_created: 0,
       reviews: 0,
-      docs_commits: 0,
       discussions: 0,
     }
   );

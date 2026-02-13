@@ -97,7 +97,7 @@ export function displayProfile(profile: Profile): void {
   const t = os.totals;
   console.log(
     chalk.bold(
-      `  Totals:  ${t.commits} commits · ${t.pull_requests} PRs · ${t.issues_created} issues · ${t.reviews} reviews · ${t.docs_commits} docs · ${t.discussions} discussions`
+      `  Totals:  ${t.commits} commits · ${t.pull_requests} PRs · ${t.issues_created} issues · ${t.reviews} reviews · ${t.discussions} discussions`
     )
   );
   console.log();
@@ -107,8 +107,8 @@ export function displayProfile(profile: Profile): void {
 
 function displayProjectTable(projects: Project[], showStars: boolean): void {
   const headers = showStars
-    ? ["Project", "⭐", "Commits", "PRs", "Issues", "Reviews", "Docs", "Discussions"]
-    : ["Project", "Commits", "PRs", "Issues", "Reviews", "Docs", "Discussions"];
+    ? ["Project", "⭐", "Commits", "PRs", "Issues", "Reviews", "Discussions"]
+    : ["Project", "Commits", "PRs", "Issues", "Reviews", "Discussions"];
 
   const rows = projects.map((p) => {
     const baseRow = [
@@ -117,7 +117,6 @@ function displayProjectTable(projects: Project[], showStars: boolean): void {
       p.counts.pull_requests.toString(),
       p.counts.issues_created.toString(),
       p.counts.reviews.toString(),
-      p.counts.docs_commits.toString(),
       p.counts.discussions.toString(),
     ];
 
@@ -240,7 +239,6 @@ export function exportToMarkdown(profile: Profile): string {
   lines.push(`- **Pull Requests:** ${os.totals.pull_requests}`);
   lines.push(`- **Issues Created:** ${os.totals.issues_created}`);
   lines.push(`- **Code Reviews:** ${os.totals.reviews}`);
-  lines.push(`- **Documentation:** ${os.totals.docs_commits}`);
   lines.push(`- **Discussions:** ${os.totals.discussions}`);
   lines.push("");
 

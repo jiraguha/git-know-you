@@ -5,7 +5,6 @@ import type {
   GitHubEvent,
   GitHubSearchResult,
   GitHubLanguages,
-  GitHubCommit,
 } from "./types.ts";
 
 export async function fetchUser(username: string): Promise<GitHubUser> {
@@ -43,23 +42,6 @@ export async function fetchRepoLanguages(
     );
   } catch {
     return {};
-  }
-}
-
-export async function fetchCommitsWithFiles(
-  owner: string,
-  repo: string,
-  author: string,
-  maxCommits = 100
-): Promise<GitHubCommit[]> {
-  try {
-    const commits = await githubClient.fetchWithPagination<GitHubCommit>(
-      `/repos/${owner}/${repo}/commits?author=${author}`,
-      Math.ceil(maxCommits / 100)
-    );
-    return commits.slice(0, maxCommits);
-  } catch {
-    return [];
   }
 }
 

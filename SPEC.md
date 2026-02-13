@@ -41,24 +41,24 @@ $ dev-profile build jpmusic2
   📊 Per-Project Breakdown:
 
   Owned Projects
-  ┌──────────────────────┬───────┬─────────┬───────┬────────┬─────────┬──────┬─────────────┐
-  │ Project              │ ⭐    │ Commits │ PRs   │ Issues │ Reviews │ Docs │ Discussions │
-  ├──────────────────────┼───────┼─────────┼───────┼────────┼─────────┼──────┼─────────────┤
-  │ top-repo             │ 85    │ 312     │ 24    │ 18     │ 47      │ 5    │ 0           │
-  │ another-repo         │ 35    │ 156     │ 12    │ 8      │ 15      │ 3    │ 0           │
-  │ small-tool           │ 4     │ 43      │ 3     │ 2      │ 0       │ 1    │ 0           │
-  └──────────────────────┴───────┴─────────┴───────┴────────┴─────────┴──────┴─────────────┘
+  ┌──────────────────────┬───────┬─────────┬───────┬────────┬─────────┬─────────────┐
+  │ Project              │ ⭐    │ Commits │ PRs   │ Issues │ Reviews │ Discussions │
+  ├──────────────────────┼───────┼─────────┼───────┼────────┼─────────┼─────────────┤
+  │ top-repo             │ 85    │ 312     │ 24    │ 18     │ 47      │ 0           │
+  │ another-repo         │ 35    │ 156     │ 12    │ 8      │ 15      │ 0           │
+  │ small-tool           │ 4     │ 43      │ 3     │ 2      │ 0       │ 0           │
+  └──────────────────────┴───────┴─────────┴───────┴────────┴─────────┴─────────────┘
 
   External Contributions
-  ┌──────────────────────┬─────────┬───────┬────────┬─────────┬──────┬─────────────┐
-  │ Project              │ Commits │ PRs   │ Issues │ Reviews │ Docs │ Discussions │
-  ├──────────────────────┼─────────┼───────┼────────┼─────────┼──────┼─────────────┤
-  │ org/notable-project  │ 0       │ 8     │ 12     │ 3       │ 0    │ 5           │
-  │ org/another-one      │ 0       │ 3     │ 1      │ 0       │ 0    │ 0           │
-  │ user/some-lib        │ 0       │ 2     │ 4      │ 1       │ 0    │ 2           │
-  └──────────────────────┴─────────┴───────┴────────┴─────────┴──────┴─────────────┘
+  ┌──────────────────────┬─────────┬───────┬────────┬─────────┬─────────────┐
+  │ Project              │ Commits │ PRs   │ Issues │ Reviews │ Discussions │
+  ├──────────────────────┼─────────┼───────┼────────┼─────────┼─────────────┤
+  │ org/notable-project  │ 0       │ 8     │ 12     │ 3       │ 5           │
+  │ org/another-one      │ 0       │ 3     │ 1      │ 0       │ 0           │
+  │ user/some-lib        │ 0       │ 2     │ 4      │ 1       │ 2           │
+  └──────────────────────┴─────────┴───────┴────────┴─────────┴─────────────┘
 
-  Totals:  511 commits · 52 PRs · 45 issues · 66 reviews · 9 docs · 7 discussions
+  Totals:  511 commits · 52 PRs · 45 issues · 66 reviews · 7 discussions
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -94,7 +94,6 @@ From the raw API data, compute **per project**:
 - **pull_requests**: PRs opened by the user on that repo
 - **issues_created**: Issues opened by the user on that repo
 - **reviews**: PRs where the user provided a review on that repo
-- **docs_commits**: Commits touching files in `docs/`, `*.md`, `*.rst`, `CHANGELOG`, `README` (subset of commits)
 - **discussions**: Issue threads where the user commented but did not author the issue
 
 From per-project counts, derive **aggregate metrics**:
@@ -147,7 +146,6 @@ All discovered repos get their per-project counts computed. Projects with all-ze
           "pull_requests": 24,
           "issues_created": 18,
           "reviews": 47,
-          "docs_commits": 5,
           "discussions": 0
         }
       },
@@ -162,7 +160,6 @@ All discovered repos get their per-project counts computed. Projects with all-ze
           "pull_requests": 8,
           "issues_created": 12,
           "reviews": 3,
-          "docs_commits": 0,
           "discussions": 5
         }
       }
@@ -172,7 +169,6 @@ All discovered repos get their per-project counts computed. Projects with all-ze
       "pull_requests": 52,
       "issues_created": 45,
       "reviews": 66,
-      "docs_commits": 9,
       "discussions": 7
     },
     "languages": {
@@ -313,7 +309,7 @@ dev-profile build <username>
 - [ ] The generated `summary` field reads as a natural answer to the open source question
 - [ ] `contributes` is correctly determined based on actual public activity
 - [ ] **Every project the user interacted with** is listed with per-project counts
-- [ ] Per-project counts include: commits, PRs, issues created, reviews, docs commits, discussions
+- [ ] Per-project counts include: commits, PRs, issues created, reviews, discussions
 - [ ] Totals row correctly sums all per-project counts
 - [ ] External contributions (PRs/issues to repos not owned by the user) are detected via events + search API
 - [ ] Language breakdown percentages are accurate across repos

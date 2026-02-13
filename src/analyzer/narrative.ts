@@ -92,7 +92,6 @@ function getContributionTypes(totals: ProjectCounts): string {
   const types: string[] = [];
 
   if (totals.commits > 0) types.push("code");
-  if (totals.docs_commits > 0) types.push("documentation");
   if (totals.issues_created > 0) types.push("issue reporting");
   if (totals.reviews > 0) types.push("code review");
   if (totals.discussions > 0) types.push("discussion");

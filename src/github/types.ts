@@ -63,23 +63,6 @@ export type GitHubSearchResult = {
   }>;
 };
 
-export type GitHubCommit = {
-  sha: string;
-  commit: {
-    message: string;
-    author: {
-      name: string;
-      date: string;
-    };
-  };
-  files?: Array<{
-    filename: string;
-    status: string;
-    additions: number;
-    deletions: number;
-  }>;
-};
-
 export type GitHubLanguages = Record<string, number>;
 
 export type RateLimitInfo = {

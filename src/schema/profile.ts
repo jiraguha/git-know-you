@@ -5,7 +5,6 @@ export const ProjectCountsSchema = z.object({
   pull_requests: z.number(),
   issues_created: z.number(),
   reviews: z.number(),
-  docs_commits: z.number(),
   discussions: z.number(),
 });
 
